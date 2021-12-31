@@ -42,13 +42,12 @@ get_cpu() {
   machine_hardware_name="$(uname -m)"
 
   case "$machine_hardware_name" in
-    'x86_64') local cpu_type="amd64";;
-    'powerpc64le' | 'ppc64le') local cpu_type="ppc64le";;
-    'aarch64') local cpu_type="arm64";;
-    'armv7l') local cpu_type="arm";;
-    *) local cpu_type="$machine_hardware_name";;
+  'x86_64') local cpu_type="amd64" ;;
+  'powerpc64le' | 'ppc64le') local cpu_type="ppc64le" ;;
+  'aarch64') local cpu_type="arm64" ;;
+  'armv7l') local cpu_type="arm" ;;
+  *) local cpu_type="$machine_hardware_name" ;;
   esac
-
   echo "$cpu_type"
 }
 
@@ -66,8 +65,6 @@ download_release() {
   url=$(get_download_url $version)
 
   echo "* Downloading $TOOL_NAME release $version..."
-  echo "* Target url $url"
-  echo "* Destination path $filename"
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 

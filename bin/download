@@ -8,9 +8,12 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=../lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
-mkdir -p "$ASDF_DOWNLOAD_PATH"
+mkdir -p "$ASDF_DOWNLOAD_PATH/bin"
 
 release_file="$ASDF_DOWNLOAD_PATH/bin/$TOOL_NAME"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
+
+# make binary executable
+chmod +x "$release_file"
