@@ -82,6 +82,7 @@ install_version() {
 
   (
     mkdir -p "$install_path"
+    echo "* Moving downloads to $install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
     local tool_cmd
