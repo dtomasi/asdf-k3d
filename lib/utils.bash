@@ -63,7 +63,7 @@ download_release() {
   version="$1"
   filename="$2"
 
-  url=$(get_download_url)
+  url=$(get_download_url $version)
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
