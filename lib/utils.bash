@@ -43,10 +43,10 @@ get_cpu() {
 
   case "$machine_hardware_name" in
   'x86_64') local cpu_type="amd64" ;;
-   'powerpc64le' | 'ppc64le') local cpu_type="ppc64le" ;;
-   'aarch64') local cpu_type="arm64" ;;
-   'armv7l') local cpu_type="arm" ;;
-   *) local cpu_type="$machine_hardware_name" ;;
+  'powerpc64le' | 'ppc64le') local cpu_type="ppc64le" ;;
+  'aarch64') local cpu_type="arm64" ;;
+  'armv7l') local cpu_type="arm" ;;
+  *) local cpu_type="$machine_hardware_name" ;;
   esac
   echo "$cpu_type"
 }
