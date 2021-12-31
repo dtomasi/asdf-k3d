@@ -85,6 +85,7 @@ install_version() {
     echo "* Moving downloads to $install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     ls -la "$install_path"
+    ls -la "$install_path/bin"
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
