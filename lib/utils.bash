@@ -66,8 +66,6 @@ download_release() {
   url=$(get_download_url $version)
 
   echo "* Downloading $TOOL_NAME release $version..."
-  echo "* Target url $url"
-  echo "* Destination path $filename"
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
@@ -82,10 +80,7 @@ install_version() {
 
   (
     mkdir -p "$install_path"
-    echo "* Moving downloads to $install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-    ls -la "$install_path"
-    ls -la "$install_path/bin"
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
